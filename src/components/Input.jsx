@@ -9,7 +9,7 @@ export default function Input({id, labelText, type, disabled, value, onChange}){
         {labelText}
         {':'}
       </label>
-      <input type={type} id={id} name={id} value={value} disabled={disabled} onChange={onChange} />
+      <input type={type} id={id} name={id} value={value} disabled={disabled} onChange={onChange} required/>
     </div>
   )
 
