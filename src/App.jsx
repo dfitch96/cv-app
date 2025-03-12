@@ -1,13 +1,13 @@
 import './styles/App.css'
 import Header from './components/Header';
-import GeneralInfoCard from './components/GeneralInfoCard';
+import ContactCard from './components/ContactCard';
 
 function App() {
   return (
     <div className="app-container">
       <div className="input-container">
         <Header />
-        <GeneralInfoCard />
+        <ContactCard/>
       </div>
       
       <div className="cv-container">
