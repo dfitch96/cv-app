@@ -1,5 +1,5 @@
 
-import Input from "./Input";
+import {Input, CheckBox} from "./Input";
 import ButtonGroup from "./ButtonGroup";
 
 
@@ -11,6 +11,8 @@ export default function EducationCard(){
         <form>
           <Input id="education" labelText="Education" type="text"/>
           <Input id="email" labelText="School" type="text"/>
+          <Input id="grad-date" labelText="Graduation Date" type="date"/>
+          <CheckBox id="enrolled" labelText="Graduated" type="checkbox"/>
           <ButtonGroup/>
         </form>
       </div>
