@@ -5,7 +5,8 @@
 }
 
 body{
-  background-color: rgb(44, 42, 42);
+  color: black;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .app-container{
@@ -16,16 +17,17 @@ body{
 .input-container{
   display: flex;
   flex-direction: column;
-  color: white;
   width: 30%;
   padding: 15px;
+  gap: 30px;
 }
 
 .cv-container{
   width: 60%;
   height: 100vh;
   margin: 25px 50px;
-  border: thin solid white;
+  padding: 30px 20px;
+  border: thin solid black;
 
 
 }

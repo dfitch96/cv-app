@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './styles/App.css'
 import Header from './components/Header';
 import ContactCard from './components/ContactCard';
+import EducationCard from './components/EducationCard';
 import CVHeader from './components/CVHeader';
 
 
@@ -30,6 +31,7 @@ function App() {
       <div className="input-container">
         <Header />
         <ContactCard formData={contactFormData} handleInputOnChange={handleContactInputOnChange} setCVData={setContactCVData} />
+        <EducationCard />
       </div>
       <div className="cv-container">
         <CVHeader formData={contactCVData}/>

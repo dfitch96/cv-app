@@ -10,9 +10,9 @@ export default function CVHeader({formData}){
         {formData.name}
       </h1>
       <div className='contact-info'>
-      <p>{formData.phone}</p>
+        <p>{formData.phone}</p>
         {' | '}
-        <p>{formData.email}</p>
+        <p><a href={"mailto:" + formData.email}>{formData.email}</a></p>
       </div>
     </div>
   )
