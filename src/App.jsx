@@ -18,6 +18,20 @@ function App() {
   });
 
 
+  const [educationFormData, setEducationFormData] = useState({
+    school: 'Your School',
+    degree: 'Bachelor of Science in Computer Science',
+    gradDate: new Date().toISOString().split('T')[0],
+    location: 'Buffalo, NY'
+  });
+
+  
+  function handleEducationInputOnChange(e){
+    setEducationFormData({
+      ...educationFormData,
+      [e.target.id]: e.target.value
+    })
+  }
 
   function handleContactInputOnChange(e){
     setContactFormData({
@@ -31,7 +45,7 @@ function App() {
       <div className="input-container">
         <Header />
         <ContactCard formData={contactFormData} handleInputOnChange={handleContactInputOnChange} setCVData={setContactCVData} />
-        <EducationCard />
+        <EducationCard formData={educationFormData} handleInputOnChange={handleEducationInputOnChange} />
       </div>
       <div className="cv-container">
         <CVHeader formData={contactCVData}/>
