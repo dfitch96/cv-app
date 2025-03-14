@@ -7,14 +7,21 @@ export default function CV_Education({formData}){
         EDUCATION
       </div>
 
-      <div className="cv-education-info">
-        <b>{formData.degree}</b>
-        <p>{formData.gradDate}</p>
-      </div>
-      <div className="cv-education-info">
-        <i>{formData.school}</i>
-        <i>{formData.location}</i>
-      </div>
+      {formData.map(form => {
+        return (
+          <div key={form.id}>
+            <div className="cv-education-info">
+              <b>{form.degree}</b>
+              <p>{form.gradDate}</p>
+            </div>
+            <div className="cv-education-info">
+              <i>{form.school}</i>
+              <i>{form.location}</i>
+            </div>
+          </div>
+        );
+      })}
+      
     </div>
   )
 }

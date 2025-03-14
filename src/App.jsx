@@ -37,13 +37,13 @@ function App() {
 
   ]);
 
-  const [educationCVData, setEducationCVData] = useState({
-    ...educationFormData,
-  });
+  const [educationCVData, setEducationCVData] = useState([
+    ...educationFormData
+  ]);
 
   
   function handleEducationInputOnChange(e){
-    const newEducationFormData = educationFormData.map(formData => formData.id !== e.target.dataset.id ? formData : {...formData, [e.target.name]: e.target.value});
+    const newEducationFormData = educationFormData.map(form => form.id !== e.target.dataset.id ? form : {...form, [e.target.name]: e.target.value});
     setEducationFormData(newEducationFormData);
   }
 
@@ -60,12 +60,12 @@ function App() {
         <Header />
         <ContactCard formData={contactFormData} handleInputOnChange={handleContactInputOnChange} setCVData={setContactCVData} />
         {educationFormData.map(form => {
-          return <EducationCard key={form.id} id={form.id} formData={form} handleInputOnChange={handleEducationInputOnChange} setCVData={setEducationCVData} />
+          return <EducationCard key={form.id} formData={form} handleInputOnChange={handleEducationInputOnChange} setCVData={setEducationCVData} CVData={educationCVData}/>
         })}
       </div>
       <div className="cv-container">
         <CVHeader formData={contactCVData}/>
-        {/* <CV_Education formData={educationCVData} /> */}
+        <CV_Education formData={educationCVData} />
       </div>
     </div>
   )

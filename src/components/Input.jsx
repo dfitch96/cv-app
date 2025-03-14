@@ -10,7 +10,7 @@ export function Input({id, dataId, name, labelText, type, disabled, value, onCha
         {labelText}
         {':'}
       </label>
-      <input type={type} name={name} id={id} data-id={dataId} value={value} disabled={disabled} onChange={onChange} required/>
+      <input id={id} data-id={dataId} value={value} type={type} name={name} disabled={disabled} onChange={onChange} required/>
     </div>
   )
 
