@@ -1,7 +1,7 @@
 
 
 
-export function Input({id, labelText, type, disabled, value, onChange}){
+export function Input({id, dataId, name, labelText, type, disabled, value, onChange, }){
 
 
   return (
@@ -10,7 +10,7 @@ export function Input({id, labelText, type, disabled, value, onChange}){
         {labelText}
         {':'}
       </label>
-      <input type={type} id={id} name={id} value={value} disabled={disabled} onChange={onChange} required/>
+      <input type={type} name={name} id={id} data-id={dataId} value={value} disabled={disabled} onChange={onChange} required/>
     </div>
   )
 

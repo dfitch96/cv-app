@@ -19,12 +19,23 @@ function App() {
   });
 
 
-  const [educationFormData, setEducationFormData] = useState({
-    school: 'Your School',
-    degree: 'Bachelor of Science in Computer Science',
-    gradDate: new Date().toISOString().split('T')[0],
-    location: 'Buffalo, NY'
-  });
+  const [educationFormData, setEducationFormData] = useState([
+    {
+      id: crypto.randomUUID(),
+      school: 'Your School',
+      degree: 'Bachelor of Science in Computer Science',
+      gradDate: new Date().toISOString().split('T')[0],
+      location: 'Buffalo, NY'
+    },
+    {
+      id: crypto.randomUUID(),
+      school: '',
+      degree: '',
+      gradDate: '',
+      location: '',
+    }
+
+  ]);
 
   const [educationCVData, setEducationCVData] = useState({
     ...educationFormData,
@@ -32,10 +43,8 @@ function App() {
 
   
   function handleEducationInputOnChange(e){
-    setEducationFormData({
-      ...educationFormData,
-      [e.target.id]: e.target.value
-    })
+    const newEducationFormData = educationFormData.map(formData => formData.id !== e.target.dataset.id ? formData : {...formData, [e.target.name]: e.target.value});
+    setEducationFormData(newEducationFormData);
   }
 
   function handleContactInputOnChange(e){
@@ -50,11 +59,13 @@ function App() {
       <div className="input-container">
         <Header />
         <ContactCard formData={contactFormData} handleInputOnChange={handleContactInputOnChange} setCVData={setContactCVData} />
-        <EducationCard formData={educationFormData} handleInputOnChange={handleEducationInputOnChange} setCVData={setEducationCVData} />
+        {educationFormData.map(form => {
+          return <EducationCard key={form.id} id={form.id} formData={form} handleInputOnChange={handleEducationInputOnChange} setCVData={setEducationCVData} />
+        })}
       </div>
       <div className="cv-container">
         <CVHeader formData={contactCVData}/>
-        <CV_Education formData={educationCVData} />
+        {/* <CV_Education formData={educationCVData} /> */}
       </div>
     </div>
   )
