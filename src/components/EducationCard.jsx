@@ -4,7 +4,7 @@ import {Input} from "./Input";
 import ButtonGroup from "./ButtonGroup";
 
 
-export default function EducationCard({formData, handleInputOnChange}){
+export default function EducationCard({formData, handleInputOnChange, setCVData}){
   const [isDisabled, setIsDisabled] = useState(true);
 
   function handleEditOnClick(){
@@ -14,6 +14,9 @@ export default function EducationCard({formData, handleInputOnChange}){
   function handleSaveOnClick(e){
     e.preventDefault();
     setIsDisabled(true);
+    setCVData({
+      ...formData
+    });
     console.log('education saved');
   }
 

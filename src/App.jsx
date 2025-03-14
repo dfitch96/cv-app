@@ -4,6 +4,7 @@ import Header from './components/Header';
 import ContactCard from './components/ContactCard';
 import EducationCard from './components/EducationCard';
 import CVHeader from './components/CVHeader';
+import CV_Education from './components/CV_Education';
 
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
   });
 
   const [contactCVData, setContactCVData] = useState({
-    ...contactFormData
+    ...contactFormData,
   });
 
 
@@ -23,6 +24,10 @@ function App() {
     degree: 'Bachelor of Science in Computer Science',
     gradDate: new Date().toISOString().split('T')[0],
     location: 'Buffalo, NY'
+  });
+
+  const [educationCVData, setEducationCVData] = useState({
+    ...educationFormData,
   });
 
   
@@ -45,10 +50,11 @@ function App() {
       <div className="input-container">
         <Header />
         <ContactCard formData={contactFormData} handleInputOnChange={handleContactInputOnChange} setCVData={setContactCVData} />
-        <EducationCard formData={educationFormData} handleInputOnChange={handleEducationInputOnChange} />
+        <EducationCard formData={educationFormData} handleInputOnChange={handleEducationInputOnChange} setCVData={setEducationCVData} />
       </div>
       <div className="cv-container">
         <CVHeader formData={contactCVData}/>
+        <CV_Education formData={educationCVData} />
       </div>
     </div>
   )

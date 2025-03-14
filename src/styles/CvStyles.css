@@ -25,3 +25,21 @@ a{
   text-decoration: none;
   color: black;
 }
+
+
+#cv-education{
+  margin: 20px 30px;
+}
+
+#cv-education-header{
+  font-size: 1.25rem;
+  border-bottom: thin solid black;
+  padding: 3px 0;
+}
+
+#cv-education .cv-education-info{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px 15px;
+}
