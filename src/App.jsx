@@ -27,15 +27,7 @@ function App() {
       degree: 'Bachelor of Science in Computer Science',
       gradDate: new Date().toISOString().split('T')[0],
       location: 'Buffalo, NY'
-    },
-    {
-      id: crypto.randomUUID(),
-      school: '',
-      degree: '',
-      gradDate: '',
-      location: '',
     }
-
   ]);
 
   const [educationCVData, setEducationCVData] = useState([
@@ -55,12 +47,25 @@ function App() {
     });
   }
 
+  function handleAddEducationOnClick(){
+    setEducationFormData([
+      ...educationFormData,
+      {
+        id: crypto.randomUUID(),
+        school: '',
+        degree: '',
+        gradDate: '',
+        location: '',
+      }
+    ]);
+  }
+
   return (
     <div className="app-container">
       <div className="input-container">
         <Header />
         <ContactCard formData={contactFormData} handleInputOnChange={handleContactInputOnChange} setCVData={setContactCVData} />
-        <AddButton />
+        <AddButton handler={handleAddEducationOnClick}/>
         {educationFormData.map(form => {
           return <EducationCard key={form.id} formData={form} handleInputOnChange={handleEducationInputOnChange} setCVData={setEducationCVData} CVData={educationCVData}/>
         })}
