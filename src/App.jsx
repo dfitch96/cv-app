@@ -5,6 +5,7 @@ import ContactCard from './components/ContactCard';
 import EducationCard from './components/EducationCard';
 import CVHeader from './components/CVHeader';
 import CV_Education from './components/CV_Education';
+import AddButton from './components/AddButton';
 
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
       <div className="input-container">
         <Header />
         <ContactCard formData={contactFormData} handleInputOnChange={handleContactInputOnChange} setCVData={setContactCVData} />
+        <AddButton />
         {educationFormData.map(form => {
           return <EducationCard key={form.id} formData={form} handleInputOnChange={handleEducationInputOnChange} setCVData={setEducationCVData} CVData={educationCVData}/>
         })}

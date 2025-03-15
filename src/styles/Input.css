@@ -53,3 +53,53 @@ form > .checkbox-div{
   border-radius: 5px;
 
 }
+
+.button-group button{
+  padding: 0.5rem;
+  border-radius: 5px;
+  transition: background-color 0.5s ease-in-out 0.0s;
+}
+
+.button-group button:hover{
+  background-color: grey;
+}
+
+.button-group button:disabled:hover{
+  background-color: white;
+}
+
+.button-group button:active{
+  transform: scale(0.90);
+}
+
+.button-group button:disabled:active{
+  transform: none;
+}
+
+
+
+.add-btn{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  background-color: rgb(167, 161, 161);
+  color: black;
+  border-radius: 10px;
+  padding: 5px 15px;
+  cursor: pointer;
+  transition: background-color 0.5s ease-in-out 0.0s;
+}
+
+.add-btn:hover{
+  background-color: rgb(77, 74, 74);
+}
+
+.add-btn:active {
+  transform: scale(0.99); /* Slight shrink effect */
+}
+
+.add-btn > img{
+  height: 1rem;
+  width: 1rem;
+}
