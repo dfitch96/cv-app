@@ -2,7 +2,7 @@
 import { useState } from "react";
 import {Input} from "./Input";
 import ButtonGroup from "./ButtonGroup";
-import CloseIcon from '../assets/close.svg';
+import DeleteButton from "./DeleteButton";
 
 
 export default function EducationCard({formData, handleInputOnChange, setCVData, CVData, handleDelete}){
@@ -26,20 +26,15 @@ export default function EducationCard({formData, handleInputOnChange, setCVData,
  
   return (
      <div className="card">
-      <div className="close-btn">
-        <button onClick={handleDelete}>
-          <img src={CloseIcon} data-id={formData.id}></img>
-        </button>
-      </div>
-        
-        <h2 className="card-header">Education</h2>
-        <form onSubmit={handleSaveOnClick}>
-          <Input id={`school-${formData.id}`} name={'school'} dataId={formData.id} labelText="School Name" type="text" disabled={isDisabled} value={formData.school} onChange={handleInputOnChange} />
-          <Input id={`degree-${formData.id}`} name={'degree'} dataId={formData.id} labelText="Degree" type="text" disabled={isDisabled} value={formData.degree} onChange={handleInputOnChange} />
-          <Input id={`gradDate-${formData.id}`} name={'gradDate'} dataId={formData.id} labelText="Graduation Date" type="date" disabled={isDisabled} value={formData.gradDate} onChange={handleInputOnChange}/>
-          <Input id={`location-${formData.id}`} name={'location'} dataId={formData.id} labelText="Location" type="text" disabled={isDisabled} value={formData.location} onChange={handleInputOnChange}/>
-          <ButtonGroup disabled={isDisabled} handleEdit={handleEditOnClick} />
-        </form>
-      </div>
+      <DeleteButton id={formData.id} handleDelete={handleDelete} />
+      <h2 className="card-header">Education</h2>
+      <form onSubmit={handleSaveOnClick}>
+        <Input id={`school-${formData.id}`} name={'school'} dataId={formData.id} labelText="School Name" type="text" disabled={isDisabled} value={formData.school} onChange={handleInputOnChange} />
+        <Input id={`degree-${formData.id}`} name={'degree'} dataId={formData.id} labelText="Degree" type="text" disabled={isDisabled} value={formData.degree} onChange={handleInputOnChange} />
+        <Input id={`gradDate-${formData.id}`} name={'gradDate'} dataId={formData.id} labelText="Graduation Date" type="date" disabled={isDisabled} value={formData.gradDate} onChange={handleInputOnChange}/>
+        <Input id={`location-${formData.id}`} name={'location'} dataId={formData.id} labelText="Location" type="text" disabled={isDisabled} value={formData.location} onChange={handleInputOnChange}/>
+        <ButtonGroup disabled={isDisabled} handleEdit={handleEditOnClick} />
+      </form>
+    </div>
   )
 }

@@ -3,6 +3,7 @@ import './styles/App.css'
 import Header from './components/Header';
 import ContactCard from './components/ContactCard';
 import EducationCard from './components/EducationCard';
+import WorkExperienceCard from './components/WorkExperienceCard';
 import CVHeader from './components/CVHeader';
 import CV_Education from './components/CV_Education';
 import AddButton from './components/AddButton';
@@ -34,6 +35,25 @@ function App() {
     ...educationFormData
   ]);
 
+
+  const [workExperienceFormData, setWorkExperienceFormData] = useState([
+    {
+      id: crypto.randomUUID(),
+      company: 'Google',
+      jobTitle: 'Software Engineer',
+      currentlyEmployed: true,
+      startDate: new Date("1999-01-01").toISOString().split('T')[0],
+      endDate: null,
+      responsibilities: [],
+    }
+  ]);
+
+
+  function handleWorkExperienceOnChange(e){
+    const newWorkExperienceFormData = workExperienceFormData.map(form => form.id !== e.target.dataset.id ? form : {...form, [e.target.name]: e.target.value});
+    setWorkExperienceFormData(newWorkExperienceFormData);
+  }
+
   
   function handleEducationInputOnChange(e){
     const newEducationFormData = educationFormData.map(form => form.id !== e.target.dataset.id ? form : {...form, [e.target.name]: e.target.value});
@@ -60,6 +80,19 @@ function App() {
     ]);
   }
 
+  function handleAddWorkExperienceOnClick(){
+    setWorkExperienceFormData([
+      ...workExperienceFormData,
+      {
+        id: crypto.randomUUID(),
+        company: '',
+        jobTitle: '',
+        responsibilities: [],
+      }
+      
+    ])
+  }
+
   function handleDeleteEducationOnClick(e){
     
     const id  = e.target.dataset.id;
@@ -73,9 +106,13 @@ function App() {
       <div className="input-container">
         <Header />
         <ContactCard formData={contactFormData} handleInputOnChange={handleContactInputOnChange} setCVData={setContactCVData} />
-        <AddButton handler={handleAddEducationOnClick}/>
+        <AddButton text="Education" handler={handleAddEducationOnClick}/>
         {educationFormData.map(form => {
           return <EducationCard key={form.id} formData={form} handleInputOnChange={handleEducationInputOnChange} setCVData={setEducationCVData} CVData={educationCVData} handleDelete={handleDeleteEducationOnClick}/>
+        })}
+        <AddButton text="Work Experience" handler={handleAddWorkExperienceOnClick} />
+        {workExperienceFormData.map(form => {
+          return <WorkExperienceCard key={form.id} formData={form} handleInputOnChange={handleWorkExperienceOnChange} />
         })}
       </div>
       <div className="cv-container">
