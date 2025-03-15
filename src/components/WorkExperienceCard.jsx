@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import DeleteButton from "./DeleteButton";
-import { Input } from "./Input";
+import { Input, Checkbox } from "./Input";
 import ButtonGroup from "./ButtonGroup";
 
 export default function WorkExperienceCard({formData, handleInputOnChange, handleDelete}){
@@ -29,6 +29,8 @@ export default function WorkExperienceCard({formData, handleInputOnChange, handl
         <Input id={`job-title-${formData.id}`} name={'jobTitle'} dataId={formData.id} labelText='Job Title' type="text" value={formData.jobTitle} onChange={handleInputOnChange} disabled={isDisabled}/>
         <Input id={`company-${formData.id}`} name={'company'} dataId={formData.id} labelText='Company' type="text" value={formData.company} onChange={handleInputOnChange} disabled={isDisabled}/>
         <Input id={`startDate-${formData.id}`} name={'startDate'} dataId={formData.id} labelText='Start Date' type="date" value={formData.startDate} onChange={handleInputOnChange} disabled={isDisabled}/>
+        <Input id={`endDate-${formData.id}`} name={'endDate'} dataId={formData.id} labelText='End Date' type="date" value={formData.endDate} onChange={handleInputOnChange} disabled={formData.currentlyEmployed || isDisabled}/>
+        <Checkbox id={`currentlyEmployed-${formData.id}`} name={'currentlyEmployed'} dataId={formData.id} labelText='Currently Employed' value={formData.currentlyEmployed} onChange={handleInputOnChange} disabled={isDisabled}/> 
         <ButtonGroup disabled={isDisabled} handleEdit={handleEditOnClick} /> 
       </form>
     </div>

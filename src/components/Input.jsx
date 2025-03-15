@@ -1,6 +1,5 @@
 
 
-
 export function Input({id, dataId, name, labelText, type, disabled, value, onChange, }){
 
 
@@ -14,6 +13,22 @@ export function Input({id, dataId, name, labelText, type, disabled, value, onCha
     </div>
   )
 
+}
+
+
+export function Checkbox({id, dataId, name, labelText, disabled, value, onChange}){
+  
+  
+
+  return (
+    <div className='checkbox-div'>
+      <label htmlFor={id}>
+        {labelText}
+        {':'}
+      </label>
+      <input id={id} data-id={dataId} checked={value} type="checkbox" name={name} disabled={disabled} onChange={onChange} />
+    </div>
+  )
 }
 
 

@@ -43,14 +43,15 @@ function App() {
       jobTitle: 'Software Engineer',
       currentlyEmployed: true,
       startDate: new Date("1999-01-01").toISOString().split('T')[0],
-      endDate: null,
+      endDate: '',
       responsibilities: [],
     }
   ]);
 
 
   function handleWorkExperienceOnChange(e){
-    const newWorkExperienceFormData = workExperienceFormData.map(form => form.id !== e.target.dataset.id ? form : {...form, [e.target.name]: e.target.value});
+    const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+    const newWorkExperienceFormData = workExperienceFormData.map(form => form.id !== e.target.dataset.id ? form : {...form, [e.target.name]: value});
     setWorkExperienceFormData(newWorkExperienceFormData);
   }
 
@@ -101,6 +102,12 @@ function App() {
     setEducationCVData([...newFormData]);
   }
 
+  function handleDeleteWorkExperienceOnClick(e){
+    const id = e.target.dataset.id;
+    const newFormData = workExperienceFormData.filter(form => form.id !== id ? form : null);
+    setWorkExperienceFormData([...newFormData]);
+  }
+
   return (
     <div className="app-container">
       <div className="input-container">
@@ -112,7 +119,7 @@ function App() {
         })}
         <AddButton text="Work Experience" handler={handleAddWorkExperienceOnClick} />
         {workExperienceFormData.map(form => {
-          return <WorkExperienceCard key={form.id} formData={form} handleInputOnChange={handleWorkExperienceOnChange} />
+          return <WorkExperienceCard key={form.id} formData={form} handleInputOnChange={handleWorkExperienceOnChange} handleDelete={handleDeleteWorkExperienceOnClick}/>
         })}
       </div>
       <div className="cv-container">

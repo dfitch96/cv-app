@@ -35,7 +35,11 @@ form > .input-div{
   padding: 10px;
 }
 
+
 form > .checkbox-div{
+  display: flex;
+  gap: 5px;
+  width: 100%;
   padding: 5px;
 }
 
