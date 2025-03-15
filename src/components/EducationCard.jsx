@@ -2,9 +2,10 @@
 import { useState } from "react";
 import {Input} from "./Input";
 import ButtonGroup from "./ButtonGroup";
+import CloseIcon from '../assets/close.svg';
 
 
-export default function EducationCard({formData, handleInputOnChange, setCVData, CVData}){
+export default function EducationCard({formData, handleInputOnChange, setCVData, CVData, handleDelete}){
   const [isDisabled, setIsDisabled] = useState(true);
 
   function handleEditOnClick(){
@@ -25,6 +26,12 @@ export default function EducationCard({formData, handleInputOnChange, setCVData,
  
   return (
      <div className="card">
+      <div className="close-btn">
+        <button onClick={handleDelete}>
+          <img src={CloseIcon} data-id={formData.id}></img>
+        </button>
+      </div>
+        
         <h2 className="card-header">Education</h2>
         <form onSubmit={handleSaveOnClick}>
           <Input id={`school-${formData.id}`} name={'school'} dataId={formData.id} labelText="School Name" type="text" disabled={isDisabled} value={formData.school} onChange={handleInputOnChange} />

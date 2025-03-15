@@ -1,6 +1,11 @@
 
 
 export default function CV_Education({formData}){
+
+  if(formData.length === 0){
+    return null;
+  }
+
   return (
     <div id="cv-education">
       <div id="cv-education-header">

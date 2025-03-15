@@ -60,6 +60,14 @@ function App() {
     ]);
   }
 
+  function handleDeleteEducationOnClick(e){
+    
+    const id  = e.target.dataset.id;
+    const newFormData = educationFormData.filter(form => form.id !== id ? form : null);
+    setEducationFormData([...newFormData]);
+    setEducationCVData([...newFormData]);
+  }
+
   return (
     <div className="app-container">
       <div className="input-container">
@@ -67,7 +75,7 @@ function App() {
         <ContactCard formData={contactFormData} handleInputOnChange={handleContactInputOnChange} setCVData={setContactCVData} />
         <AddButton handler={handleAddEducationOnClick}/>
         {educationFormData.map(form => {
-          return <EducationCard key={form.id} formData={form} handleInputOnChange={handleEducationInputOnChange} setCVData={setEducationCVData} CVData={educationCVData}/>
+          return <EducationCard key={form.id} formData={form} handleInputOnChange={handleEducationInputOnChange} setCVData={setEducationCVData} CVData={educationCVData} handleDelete={handleDeleteEducationOnClick}/>
         })}
       </div>
       <div className="cv-container">
