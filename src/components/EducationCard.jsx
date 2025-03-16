@@ -15,11 +15,19 @@ export default function EducationCard({formData, handleInputOnChange, setCVData,
   function handleSaveOnClick(e){
     e.preventDefault();
     setIsDisabled(true);
-    const newCVData = CVData.filter(form => form.id !== formData.id ? form : null);
-    setCVData([
-      ...newCVData,
-      formData
-    ]);
+
+    if(CVData.findIndex(form => form.id === formData.id) !== -1){
+      const newCVData = CVData.map(form => form.id === formData.id ? formData : form);
+      setCVData(newCVData);
+    } else{
+      const newCVData = CVData.filter(form => form.id !== formData.id ? form : null);
+      setCVData([
+        ...newCVData,
+        formData
+      ]);
+    }
+    
+   
     console.log('education saved');
   }
 

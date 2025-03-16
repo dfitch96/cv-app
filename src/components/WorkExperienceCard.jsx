@@ -2,7 +2,6 @@
 import { useState } from "react";
 import DeleteButton from "./DeleteButton";
 import { Input, Checkbox, TextArea } from "./Input";
-import AddButton from "./AddButton";
 import {Button, ButtonGroup} from "./ButtonGroup";
 
 export default function WorkExperienceCard({formData, handleInputOnChange, handleDelete}){
@@ -16,7 +15,6 @@ export default function WorkExperienceCard({formData, handleInputOnChange, handl
     function handleSaveOnClick(e){
       e.preventDefault();
       setIsDisabled(true);
-      console.log('education saved');
     }
 
 
