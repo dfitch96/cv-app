@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import {Input} from "./Input";
-import ButtonGroup from "./ButtonGroup";
+import {ButtonGroup} from "./ButtonGroup";
 import DeleteButton from "./DeleteButton";
 
 

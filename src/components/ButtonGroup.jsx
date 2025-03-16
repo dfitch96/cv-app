@@ -1,7 +1,7 @@
 
 
 
-export default function ButtonGroup({disabled, handleEdit, handleSave}){
+export function ButtonGroup({disabled, handleEdit, handleSave}){
 
   return (
     <div className="button-group">
@@ -9,5 +9,14 @@ export default function ButtonGroup({disabled, handleEdit, handleSave}){
       <button type="submit" onClick={handleSave} disabled={disabled}>Save</button>
     </div>
   )
+}
 
+
+
+export function Button({disabled, text}){
+  return (
+    <div className="button-div">
+      <button type="button" disabled={disabled}>{text}</button>
+    </div>
+  )
 }

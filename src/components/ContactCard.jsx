@@ -1,6 +1,6 @@
 
 import {Input} from './Input';
-import ButtonGroup from './ButtonGroup';
+import {ButtonGroup} from './ButtonGroup';
 import '../styles/Input.css';
 import { useState } from 'react';
 

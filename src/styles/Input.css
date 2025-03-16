@@ -57,12 +57,11 @@ textarea{
   padding-top: 10px;
 }
 
-.button-group button{
-  padding: 0.5rem;
-  border-radius: 5px;
-
+.button-div{
+  padding: 5px;
 }
 
+.button-div button,
 .button-group button{
   padding: 0.5rem;
   border-radius: 5px;
@@ -70,19 +69,23 @@ textarea{
   cursor: pointer;
 }
 
+.button-div button:hover,
 .button-group button:hover{
   background-color: grey;
 }
 
+.button-div button:disabled:hover,
 .button-group button:disabled:hover{
   background-color: white;
   cursor: default;
 }
 
+.button-div button:active,
 .button-group button:active{
   transform: scale(0.90);
 }
 
+.button-div button:disabled:active,
 .button-group button:disabled:active{
   transform: none;
 }
