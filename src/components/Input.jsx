@@ -2,7 +2,6 @@
 
 export function Input({id, dataId, name, labelText, type, disabled, value, onChange, }){
 
-
   return (
     <div className='input-div'>
       <label htmlFor={id}>
@@ -15,11 +14,8 @@ export function Input({id, dataId, name, labelText, type, disabled, value, onCha
 
 }
 
-
 export function Checkbox({id, dataId, name, labelText, disabled, value, onChange}){
   
-  
-
   return (
     <div className='checkbox-div'>
       <label htmlFor={id}>
@@ -27,6 +23,19 @@ export function Checkbox({id, dataId, name, labelText, disabled, value, onChange
         {':'}
       </label>
       <input id={id} data-id={dataId} checked={value} type="checkbox" name={name} disabled={disabled} onChange={onChange} />
+    </div>
+  )
+}
+
+export function TextArea({id, dataId, name, labelText, disabled, value, onChange}){
+  
+  return (
+    <div className='input-div'>
+      <label htmlFor={id}>
+        {labelText}
+        {':'}
+      </label>
+      <textarea id={id} data-id={dataId} checked={value} type="checkbox" name={name} disabled={disabled} onChange={onChange} />
     </div>
   )
 }
