@@ -13,10 +13,10 @@ export function ButtonGroup({disabled, handleEdit, handleSave}){
 
 
 
-export function Button({disabled, text}){
+export function Button({disabled, text, handler, dataId}){
   return (
     <div className="button-div">
-      <button type="button" disabled={disabled}>{text}</button>
+      <button data-id={dataId} type="button" disabled={disabled} onClick={handler}>{text}</button>
     </div>
   )
 }

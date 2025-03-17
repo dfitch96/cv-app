@@ -35,7 +35,7 @@ export function TextArea({id, dataId, name, labelText, disabled, value, onChange
         {labelText}
         {':'}
       </label>
-      <textarea id={id} data-id={dataId} checked={value} type="checkbox" name={name} disabled={disabled} onChange={onChange} />
+      <textarea id={id} data-id={dataId} value={value} type="checkbox" name={name} disabled={disabled} onChange={onChange} />
     </div>
   )
 }

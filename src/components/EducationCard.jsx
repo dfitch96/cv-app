@@ -16,13 +16,13 @@ export default function EducationCard({formData, handleInputOnChange, setCVData,
     e.preventDefault();
     setIsDisabled(true);
 
+    // if form has already been saved, update it. Otherwise insert at the end of the array
     if(CVData.findIndex(form => form.id === formData.id) !== -1){
       const newCVData = CVData.map(form => form.id === formData.id ? formData : form);
       setCVData(newCVData);
     } else{
-      const newCVData = CVData.filter(form => form.id !== formData.id ? form : null);
       setCVData([
-        ...newCVData,
+        ...CVData,
         formData
       ]);
     }
