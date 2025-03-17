@@ -27,17 +27,17 @@ a{
 }
 
 
-#cv-education{
+.cv-template-container{
   margin: 20px 30px;
 }
 
-#cv-education-header{
+.cv-template-header{
   font-size: 1.25rem;
   border-bottom: thin solid black;
   padding: 3px 0;
 }
 
-#cv-education .cv-education-info{
+.cv-template-container .cv-template-info{
   display: flex;
   justify-content: space-between;
   align-items: center;

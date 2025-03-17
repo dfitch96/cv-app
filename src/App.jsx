@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './styles/App.css'
+import './styles/App.css';
 import Header from './components/Header';
 import ContactCard from './components/ContactCard';
 import EducationCard from './components/EducationCard';
@@ -42,10 +42,15 @@ function App() {
       company: 'Google',
       jobTitle: 'Software Engineer',
       currentlyEmployed: true,
+      location: 'Mountain View, CA',
       startDate: new Date("1999-01-01").toISOString().split('T')[0],
       endDate: '',
       duties: [{id: crypto.randomUUID(), text: 'Otimpized search algorithm for google search by 50%'},],
     }
+  ]);
+
+  const [workExperienceCVData, setWorkExperienceCVData] = useState([
+    ...workExperienceFormData
   ]);
 
 
@@ -61,6 +66,19 @@ function App() {
     const currForm = newWorkExperienceFormData.find(form => form.id === id);
     currForm.duties.push({id: crypto.randomUUID(), text: ''});
     setWorkExperienceFormData(newWorkExperienceFormData);
+  }
+
+  function handleWorkDutyOnChange(e){
+    const formId = e.target.dataset.id;
+    const dutyId = e.target.id;
+    const newWorkExperienceFormData = [...workExperienceFormData];
+    const currForm = newWorkExperienceFormData.find(form => form.id === formId);
+    const currDuty = currForm.duties.find(duty => duty.id === dutyId);
+    currDuty.text = e.target.value;
+    setWorkExperienceFormData(newWorkExperienceFormData);
+
+
+
 
   }
 
@@ -98,6 +116,7 @@ function App() {
         company: '',
         jobTitle: '',
         currentlyEmployed: false,
+        location: '',
         startDate: '',
         endDate: '',
         duties: [],
@@ -131,7 +150,7 @@ function App() {
         })}
         <AddButton text="Work Experience" handler={handleAddWorkExperienceOnClick} />
         {workExperienceFormData.map(form => {
-          return <WorkExperienceCard key={form.id} formData={form} handleInputOnChange={handleWorkExperienceOnChange} handleAddDutyOnClick={handleAddWorkDutyOnClick} handleDelete={handleDeleteWorkExperienceOnClick}/>
+          return <WorkExperienceCard key={form.id} formData={form} handleInputOnChange={handleWorkExperienceOnChange} handleAddDutyOnClick={handleAddWorkDutyOnClick} handleDutyOnChange={handleWorkDutyOnChange} handleDelete={handleDeleteWorkExperienceOnClick}/>
         })}
       </div>
       <div className="cv-container">
