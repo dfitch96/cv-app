@@ -17,8 +17,6 @@ export default function WorkExperienceCard({formData, handleInputOnChange, handl
       setIsDisabled(true);
     }
 
-
-
   return (
 
     <div className="card">
@@ -37,10 +35,6 @@ export default function WorkExperienceCard({formData, handleInputOnChange, handl
       </form>
     </div>
 
-
   );
-
-
-
 
 }

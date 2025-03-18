@@ -10,6 +10,8 @@ import AddButton from './components/AddButton';
 
 
 function App() {
+
+  // CONTACT INFO STATE
   const [contactFormData, setContactFormData] = useState({
     name: 'Your Name',
     email: 'name@email.com',
@@ -20,7 +22,15 @@ function App() {
     ...contactFormData,
   });
 
+  function handleContactInputOnChange(e){
+    setContactFormData({
+      ...contactFormData,
+      [e.target.id]: e.target.value
+    });
+  }
 
+
+  // EDUCATION STATE
   const [educationFormData, setEducationFormData] = useState([
     {
       id: crypto.randomUUID(),
@@ -36,6 +46,36 @@ function App() {
   ]);
 
 
+  function handleEducationInputOnChange(e){
+    const newEducationFormData = educationFormData.map(form => form.id !== e.target.dataset.id ? form : {...form, [e.target.name]: e.target.value});
+    setEducationFormData(newEducationFormData);
+  }
+
+  function handleAddEducationOnClick(){
+    setEducationFormData([
+      ...educationFormData,
+      {
+        id: crypto.randomUUID(),
+        school: '',
+        degree: '',
+        gradDate: '',
+        location: '',
+      }
+    ]);
+  }
+
+  function handleDeleteEducationOnClick(e){
+    
+    const id  = e.target.dataset.id;
+    const newFormData = educationFormData.filter(form => form.id !== id ? form : null);
+    setEducationFormData([...newFormData]);
+    setEducationCVData([...newFormData]);
+  }
+
+
+
+
+  // WORK EXPERIENCE STATE
   const [workExperienceFormData, setWorkExperienceFormData] = useState([
     {
       id: crypto.randomUUID(),
@@ -53,59 +93,10 @@ function App() {
     ...workExperienceFormData
   ]);
 
-
   function handleWorkExperienceOnChange(e){
     const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
     const newWorkExperienceFormData = workExperienceFormData.map(form => form.id !== e.target.dataset.id ? form : {...form, [e.target.name]: value});
     setWorkExperienceFormData(newWorkExperienceFormData);
-  }
-
-  function handleAddWorkDutyOnClick(e){
-    const id = e.target.dataset.id;
-    const newWorkExperienceFormData = [...workExperienceFormData];
-    const currForm = newWorkExperienceFormData.find(form => form.id === id);
-    currForm.duties.push({id: crypto.randomUUID(), text: ''});
-    setWorkExperienceFormData(newWorkExperienceFormData);
-  }
-
-  function handleWorkDutyOnChange(e){
-    const formId = e.target.dataset.id;
-    const dutyId = e.target.id;
-    const newWorkExperienceFormData = [...workExperienceFormData];
-    const currForm = newWorkExperienceFormData.find(form => form.id === formId);
-    const currDuty = currForm.duties.find(duty => duty.id === dutyId);
-    currDuty.text = e.target.value;
-    setWorkExperienceFormData(newWorkExperienceFormData);
-
-
-
-
-  }
-
-  
-  function handleEducationInputOnChange(e){
-    const newEducationFormData = educationFormData.map(form => form.id !== e.target.dataset.id ? form : {...form, [e.target.name]: e.target.value});
-    setEducationFormData(newEducationFormData);
-  }
-
-  function handleContactInputOnChange(e){
-    setContactFormData({
-      ...contactFormData,
-      [e.target.id]: e.target.value
-    });
-  }
-
-  function handleAddEducationOnClick(){
-    setEducationFormData([
-      ...educationFormData,
-      {
-        id: crypto.randomUUID(),
-        school: '',
-        degree: '',
-        gradDate: '',
-        location: '',
-      }
-    ]);
   }
 
   function handleAddWorkExperienceOnClick(){
@@ -125,18 +116,28 @@ function App() {
     ])
   }
 
-  function handleDeleteEducationOnClick(e){
-    
-    const id  = e.target.dataset.id;
-    const newFormData = educationFormData.filter(form => form.id !== id ? form : null);
-    setEducationFormData([...newFormData]);
-    setEducationCVData([...newFormData]);
-  }
-
   function handleDeleteWorkExperienceOnClick(e){
     const id = e.target.dataset.id;
     const newFormData = workExperienceFormData.filter(form => form.id !== id ? form : null);
     setWorkExperienceFormData([...newFormData]);
+  }
+
+  function handleAddWorkDutyOnClick(e){
+    const id = e.target.dataset.id;
+    const newWorkExperienceFormData = [...workExperienceFormData];
+    const currForm = newWorkExperienceFormData.find(form => form.id === id);
+    currForm.duties.push({id: crypto.randomUUID(), text: ''});
+    setWorkExperienceFormData(newWorkExperienceFormData);
+  }
+
+  function handleWorkDutyOnChange(e){
+    const formId = e.target.dataset.id;
+    const dutyId = e.target.id;
+    const newWorkExperienceFormData = [...workExperienceFormData];
+    const currForm = newWorkExperienceFormData.find(form => form.id === formId);
+    const currDuty = currForm.duties.find(duty => duty.id === dutyId);
+    currDuty.text = e.target.value;
+    setWorkExperienceFormData(newWorkExperienceFormData);
   }
 
   return (

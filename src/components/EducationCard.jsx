@@ -26,9 +26,7 @@ export default function EducationCard({formData, handleInputOnChange, setCVData,
         formData
       ]);
     }
-    
-   
-    console.log('education saved');
+ 
   }
 
  
