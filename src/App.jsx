@@ -84,9 +84,15 @@ function App() {
       jobTitle: 'Software Engineer',
       currentlyEmployed: true,
       location: 'Mountain View, CA',
-      startDate: new Date("1999-01-01").toISOString().split('T')[0],
+      startDate: new Date("2001-01-01").toISOString().split('T')[0],
       endDate: '',
-      duties: [{id: crypto.randomUUID(), text: 'Otimpized search algorithm for google search by 50%'},],
+      duties: [
+        {id: crypto.randomUUID(), text: 'Designed the first version of Google Maps by walking around with a notepad and a really good sense of direction'},
+        {id: crypto.randomUUID(), text: 'Proposed an early version of Google Assistant in 2007—at the time, it was just an intern named Kevin who responded to emails manually'},
+        {id: crypto.randomUUID(), text: 'Attempted to replace the Google logo with a picture of my dog for April Fools; accidentally shut down the homepage for three hours'},
+        {id: crypto.randomUUID(), text: 'Personally debugged the internet after someone tripped over a cable in 2001'},
+        {id: crypto.randomUUID(), text: 'Accidentally invented Google Docs while trying to make a grocery list in Notepad'},
+      ],
     }
   ]);
 

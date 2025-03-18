@@ -4,6 +4,9 @@
 
 export default function CV_WorkExperience({formData}){
 
+  if(formData.length === 0){
+    return null;
+  }
 
   return (
     <div className="cv-template-container">
