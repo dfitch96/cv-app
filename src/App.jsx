@@ -4,6 +4,7 @@ import Header from './components/Header';
 import ContactCard from './components/ContactCard';
 import EducationCard from './components/EducationCard';
 import WorkExperienceCard from './components/WorkExperienceCard';
+import SkillsCard from './components/SkillsCard';
 import CV_Header from './components/CV_Header';
 import CV_Education from './components/CV_Education';
 import CV_WorkExperience from './components/CV_WorkExperience';
@@ -148,6 +149,20 @@ function App() {
     setWorkExperienceFormData(newWorkExperienceFormData);
   }
 
+
+  // SKILLS STATE
+
+  const [skillsFormData, setSkillsFormData] = useState([
+    {
+      id: crypto.randomUUID(),
+      name: 'Programming Languages',
+      skillList: []
+    },
+  ]);
+
+
+
+
   return (
     <div className="app-container">
       <div className="input-container">
@@ -161,6 +176,11 @@ function App() {
         {workExperienceFormData.map(form => {
           return <WorkExperienceCard key={form.id} formData={form} handleInputOnChange={handleWorkExperienceOnChange} handleAddDutyOnClick={handleAddWorkDutyOnClick} handleDutyOnChange={handleWorkDutyOnChange} handleDelete={handleDeleteWorkExperienceOnClick} setCVData={setWorkExperienceCVData} CVData={workExperienceCVData}/>
         })}
+         <AddButton text="Skill" />
+        {skillsFormData.map(form => {
+          return <SkillsCard key={form.id} formData={form} />
+        })}
+
       </div>
       <div className="cv-container">
         <CV_Header formData={contactCVData}/>

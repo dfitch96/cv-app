@@ -20,6 +20,8 @@ body{
   width: 30%;
   padding: 15px 60px;
   gap: 30px;
+  border: 1px solid black;
+  margin: 25px 50px;
 }
 
 .cv-container{
