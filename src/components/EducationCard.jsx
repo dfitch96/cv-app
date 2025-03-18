@@ -26,7 +26,8 @@ export default function EducationCard({formData, handleInputOnChange, setCVData,
         formData
       ]);
     }
- 
+    
+   
   }
 
  

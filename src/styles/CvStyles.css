@@ -6,6 +6,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 25px;
 }
 
 
@@ -28,13 +29,14 @@ a{
 
 
 .cv-template-container{
-  margin: 20px 30px;
+  margin: 10px 30px;
 }
 
 .cv-template-header{
   font-size: 1.25rem;
   border-bottom: thin solid black;
   padding: 3px 0;
+  
 }
 
 .cv-template-container .cv-template-info{
@@ -43,3 +45,18 @@ a{
   align-items: center;
   padding: 3px 15px;
 }
+
+
+.cv-template-ul{
+  padding-left: 45px;
+  
+}
+
+.cv-template-ul li:first-child{
+  margin-top: 0px;
+}
+
+.cv-template-ul li{
+  margin: 10px 0px;
+}
+

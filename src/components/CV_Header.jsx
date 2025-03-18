@@ -2,7 +2,7 @@ import '../styles/CvStyles.css'
 
 
 
-export default function CVHeader({formData}){
+export default function CV_Header({formData}){
 
   return(
     <div id='cv-header'>

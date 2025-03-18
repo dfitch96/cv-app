@@ -4,7 +4,7 @@ import DeleteButton from "./DeleteButton";
 import { Input, Checkbox, TextArea } from "./Input";
 import {Button, ButtonGroup} from "./ButtonGroup";
 
-export default function WorkExperienceCard({formData, handleInputOnChange, handleAddDutyOnClick, handleDutyOnChange, handleDelete}){
+export default function WorkExperienceCard({formData, handleInputOnChange, handleAddDutyOnClick, handleDutyOnChange, handleDelete, setCVData, CVData}){
 
    const [isDisabled, setIsDisabled] = useState(true);
   
@@ -15,6 +15,18 @@ export default function WorkExperienceCard({formData, handleInputOnChange, handl
     function handleSaveOnClick(e){
       e.preventDefault();
       setIsDisabled(true);
+      // if this form has already been saved, update it at its current location, otherwise append it to the CVData array
+      if(CVData.findIndex(form => form.id === formData.id) !== -1){
+        const newCVData = CVData.map(form => form.id === formData.id ? formData : form);
+        setCVData(newCVData);
+        console.log("current record found");
+      } else{
+        setCVData([
+          ...CVData,
+          formData
+        ]);
+        console.log("current record not found");
+      }
     }
 
   return (

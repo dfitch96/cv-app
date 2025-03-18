@@ -4,8 +4,9 @@ import Header from './components/Header';
 import ContactCard from './components/ContactCard';
 import EducationCard from './components/EducationCard';
 import WorkExperienceCard from './components/WorkExperienceCard';
-import CVHeader from './components/CVHeader';
+import CV_Header from './components/CV_Header';
 import CV_Education from './components/CV_Education';
+import CV_WorkExperience from './components/CV_WorkExperience';
 import AddButton from './components/AddButton';
 
 
@@ -120,6 +121,7 @@ function App() {
     const id = e.target.dataset.id;
     const newFormData = workExperienceFormData.filter(form => form.id !== id ? form : null);
     setWorkExperienceFormData([...newFormData]);
+    setWorkExperienceCVData([...newFormData])
   }
 
   function handleAddWorkDutyOnClick(e){
@@ -151,12 +153,13 @@ function App() {
         })}
         <AddButton text="Work Experience" handler={handleAddWorkExperienceOnClick} />
         {workExperienceFormData.map(form => {
-          return <WorkExperienceCard key={form.id} formData={form} handleInputOnChange={handleWorkExperienceOnChange} handleAddDutyOnClick={handleAddWorkDutyOnClick} handleDutyOnChange={handleWorkDutyOnChange} handleDelete={handleDeleteWorkExperienceOnClick}/>
+          return <WorkExperienceCard key={form.id} formData={form} handleInputOnChange={handleWorkExperienceOnChange} handleAddDutyOnClick={handleAddWorkDutyOnClick} handleDutyOnChange={handleWorkDutyOnChange} handleDelete={handleDeleteWorkExperienceOnClick} setCVData={setWorkExperienceCVData} CVData={workExperienceCVData}/>
         })}
       </div>
       <div className="cv-container">
-        <CVHeader formData={contactCVData}/>
+        <CV_Header formData={contactCVData}/>
         <CV_Education formData={educationCVData} />
+        <CV_WorkExperience formData={workExperienceCVData}/>
       </div>
     </div>
   )
