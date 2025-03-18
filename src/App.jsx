@@ -155,10 +155,33 @@ function App() {
   const [skillsFormData, setSkillsFormData] = useState([
     {
       id: crypto.randomUUID(),
-      name: 'Programming Languages',
+      category: 'Programming Languages',
       skillList: []
     },
   ]);
+
+
+  function handleSkillsInputOnChange(e){
+    const newSkillsFormData = skillsFormData.map(form => form.id !== e.target.dataset.id ? form : {...form, [e.target.name]: e.target.value});
+    setSkillsFormData(newSkillsFormData);
+  }
+
+  function handleAddSkillOnClick(){
+    setSkillsFormData([
+      ...skillsFormData,
+      {
+        id: crypto.randomUUID(),
+        category: '',
+        skillList: []
+      },
+    ]);
+  }
+
+  function handleDeleteSkillOnClick(e){
+    const id = e.target.dataset.id;
+    const newSkillsFormData = skillsFormData.filter(form => form.id !== id ? form : null);
+    setSkillsFormData([...newSkillsFormData]);
+  }
 
 
 
@@ -176,9 +199,9 @@ function App() {
         {workExperienceFormData.map(form => {
           return <WorkExperienceCard key={form.id} formData={form} handleInputOnChange={handleWorkExperienceOnChange} handleAddDutyOnClick={handleAddWorkDutyOnClick} handleDutyOnChange={handleWorkDutyOnChange} handleDelete={handleDeleteWorkExperienceOnClick} setCVData={setWorkExperienceCVData} CVData={workExperienceCVData}/>
         })}
-         <AddButton text="Skill" />
+        <AddButton text="Skill" handler={handleAddSkillOnClick}/>
         {skillsFormData.map(form => {
-          return <SkillsCard key={form.id} formData={form} />
+          return <SkillsCard key={form.id} formData={form} handleInputOnChange={handleSkillsInputOnChange} handleDelete={handleDeleteSkillOnClick} />
         })}
 
       </div>
