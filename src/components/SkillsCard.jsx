@@ -5,7 +5,7 @@ import DetailsButton from "./DetailsButton";
 import { Input, TextArea } from "./Input";
 import {Button, ButtonGroup} from "./ButtonGroup";
 
-export default function SkillsCard({formData, handleInputOnChange, handleAddSkillOnClick, handleSkillListOnChange, handleDelete, setCVData, CVData}){
+export default function SkillsCard({formData, handleInputOnChange, handleAddNewSkillOnClick, handleSkillListOnChange, handleDelete, setCVData, CVData}){
 
    const [isDisabled, setIsDisabled] = useState(true);
    const[isCollapsed, setIsCollapsed] = useState(true);
@@ -33,7 +33,8 @@ export default function SkillsCard({formData, handleInputOnChange, handleAddSkil
       {!isCollapsed && 
         <form onSubmit={handleSaveOnClick}>
           <Input id={`category-${formData.id}`} name={'category'} dataId={formData.id} labelText='Skill Category' type="text" value={formData.category} onChange={handleInputOnChange} disabled={isDisabled}/>
-          <Button dataId={formData.id} text="Add Skill" disabled={isDisabled}/>
+          <Button dataId={formData.id} text="Add Skill" disabled={isDisabled} handler={handleAddNewSkillOnClick}/>
+          {formData.skillList.map(skill => <Input  key={skill.id} id={skill.id} dataId={formData.id} name={'skill'} labelText={'Skill'} type={'text'} disabled={isDisabled} value={skill.text} onChange={handleSkillListOnChange} />)}
           <ButtonGroup disabled={isDisabled} handleEdit={handleEditOnClick} /> 
         </form>
       

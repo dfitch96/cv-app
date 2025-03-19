@@ -183,6 +183,23 @@ function App() {
     setSkillsFormData([...newSkillsFormData]);
   }
 
+  function handleAddNewSkillOnClick(e){
+    const id = e.target.dataset.id;
+    const newFormData = [...skillsFormData];
+    const currForm = newFormData.find(form => form.id === id);
+    currForm.skillList.push({
+      id: crypto.randomUUID(),
+      text: '',
+    });
+    setSkillsFormData(newFormData);
+    console.log("added new skill to form" + id);
+
+  }
+
+  function handleSkillListOnChange(e){
+    console.log(e.target.value);
+  }
+
 
 
 
@@ -201,7 +218,7 @@ function App() {
         })}
         <AddButton text="Skill" handler={handleAddSkillOnClick}/>
         {skillsFormData.map(form => {
-          return <SkillsCard key={form.id} formData={form} handleInputOnChange={handleSkillsInputOnChange} handleDelete={handleDeleteSkillOnClick} />
+          return <SkillsCard key={form.id} formData={form} handleInputOnChange={handleSkillsInputOnChange} handleDelete={handleDeleteSkillOnClick} handleAddNewSkillOnClick={handleAddNewSkillOnClick} handleSkillListOnChange={handleSkillListOnChange} />
         })}
 
       </div>
