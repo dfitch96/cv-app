@@ -1,7 +1,7 @@
 # cv-app
 
 ## Overview
-This project is a React-based web application that allows users to create and customize their resume. The app uses a single resume format inspired by Jakes Resume Template. Users can add, edit, delete, and save forms for their contact information, education, work experience, and skills. Once the information is saved, it is formatted and displayed as a structured resume.
+This project is a React-based web application that allows users to create and customize their resume. The app uses Jake's Resume Template for the resume format. Users can add, edit, delete, and save forms for their contact information, education, work experience, and skills. Once the information is saved, it is formatted and displayed as a structured resume.
 
 ## Features
 - __General Information:__ Add and edit name, email, and phone number.
