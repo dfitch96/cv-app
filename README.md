@@ -32,7 +32,7 @@ This project is a React-based web application that allows users to create and cu
 
 ## Feature Enhancements
 - Enhance the date formats that are displayed on the resume template
-- Add a print to pdf button
+- Add a button that allows the user to print their resume to a pdf file
 - Add a feature that allows the user to select from multiple resume templates
 
 ## Live Demo
