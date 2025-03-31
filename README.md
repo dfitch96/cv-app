@@ -34,6 +34,7 @@ This project is a React-based web application that allows users to create and cu
 - Enhance the date formats that are displayed on the resume template
 - Add a button that allows the user to print their resume to a pdf file
 - Add a feature that allows the user to select from multiple resume templates
+- Make the app responsive so the user can access it on mobile devices
 
 ## Live Demo
 [odin-project-cv-app.netlify.app/](https://odin-project-cv-app.netlify.app/)
