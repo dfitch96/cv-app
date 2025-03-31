@@ -1,7 +1,7 @@
 # cv-app
 
 ## Overview
-cv-app is a React-based web application that allows users to create and customize their resumes. Users can add, edit, delete, and save forms for their contact information, education, work experience, and skills. Once the information is saved, it is formatted and displayed as a structured resume.
+This project is a React-based web application that allows users to create and customize their resumes. Users can add, edit, delete, and save forms for their contact information, education, work experience, and skills. Once the information is saved, it is formatted and displayed as a structured resume.
 
 ## Features
 - __General Information:__ Add and edit name, email, and phone number.
