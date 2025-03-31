@@ -8,6 +8,7 @@ import SkillsCard from './components/SkillsCard';
 import CV_Header from './components/CV_Header';
 import CV_Education from './components/CV_Education';
 import CV_WorkExperience from './components/CV_WorkExperience';
+import CV_Skills from './components/CV_Skills';
 import AddButton from './components/AddButton';
 
 
@@ -97,9 +98,10 @@ function App() {
     }
   ]);
 
-  const [workExperienceCVData, setWorkExperienceCVData] = useState([
-    ...workExperienceFormData
-  ]);
+  const [workExperienceCVData, setWorkExperienceCVData] = useState(workExperienceFormData.map(form => {
+    return {...form, duties: [...form.duties]};
+    
+  }));
 
   function handleWorkExperienceOnChange(e){
     const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
@@ -160,6 +162,9 @@ function App() {
     },
   ]);
 
+  const [skillsCVData, setSkillsCVData] = useState([
+    ...skillsFormData,
+  ]);
 
   function handleSkillsInputOnChange(e){
     const newSkillsFormData = skillsFormData.map(form => form.id !== e.target.dataset.id ? form : {...form, [e.target.name]: e.target.value});
@@ -192,12 +197,18 @@ function App() {
       text: '',
     });
     setSkillsFormData(newFormData);
-    console.log("added new skill to form" + id);
 
   }
 
   function handleSkillListOnChange(e){
-    console.log(e.target.value);
+    const formId = e.target.dataset.id;
+    const skillId = e.target.id;
+    const newFormData = [...skillsFormData];
+    const currForm = newFormData.find(form => form.id === formId);
+    const skill = currForm.skillList.find(skill => skill.id === skillId);
+    skill.text = e.target.value;
+    setSkillsFormData(newFormData);
+
   }
 
 
@@ -218,7 +229,7 @@ function App() {
         })}
         <AddButton text="Skill" handler={handleAddSkillOnClick}/>
         {skillsFormData.map(form => {
-          return <SkillsCard key={form.id} formData={form} handleInputOnChange={handleSkillsInputOnChange} handleDelete={handleDeleteSkillOnClick} handleAddNewSkillOnClick={handleAddNewSkillOnClick} handleSkillListOnChange={handleSkillListOnChange} />
+          return <SkillsCard key={form.id} formData={form} handleInputOnChange={handleSkillsInputOnChange} handleDelete={handleDeleteSkillOnClick} handleAddNewSkillOnClick={handleAddNewSkillOnClick} handleSkillListOnChange={handleSkillListOnChange} CVData={skillsCVData} setCVData={setSkillsCVData} />
         })}
 
       </div>
@@ -226,6 +237,7 @@ function App() {
         <CV_Header formData={contactCVData}/>
         <CV_Education formData={educationCVData} />
         <CV_WorkExperience formData={workExperienceCVData}/>
+        <CV_Skills formData={skillsCVData}/>
       </div>
     </div>
   )

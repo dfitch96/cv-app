@@ -2,7 +2,7 @@
 import { useState } from "react";
 import DeleteButton from "./DeleteButton";
 import DetailsButton from "./DetailsButton";
-import { Input, TextArea } from "./Input";
+import { Input } from "./Input";
 import {Button, ButtonGroup} from "./ButtonGroup";
 
 export default function SkillsCard({formData, handleInputOnChange, handleAddNewSkillOnClick, handleSkillListOnChange, handleDelete, setCVData, CVData}){
@@ -18,6 +18,15 @@ export default function SkillsCard({formData, handleInputOnChange, handleAddNewS
       e.preventDefault();
       setIsDisabled(true);
       // if this form has already been saved, update it at its current location, otherwise append it to the CVData array
+      if(CVData.find(form => form.id === formData.id) !== -1){
+        const newCVData = CVData.map(form => form.id === formData.id ? formData : form);
+        setCVData(newCVData);
+      } else{
+        setCVData([
+          ...CVData,
+          formData
+        ]);
+      }
       
     }
 
