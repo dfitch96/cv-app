@@ -10,16 +10,13 @@ import CV_Education from './components/CV_Education';
 import CV_WorkExperience from './components/CV_WorkExperience';
 import CV_Skills from './components/CV_Skills';
 import AddButton from './components/AddButton';
+import { contactObject, educationObject, workExperienceObjects, skillsObjects } from './forms/formData';
 
 
 function App() {
 
   // CONTACT INFO STATE
-  const [contactFormData, setContactFormData] = useState({
-    name: 'Your Name',
-    email: 'name@email.com',
-    phone: '(123) 456-7891'
-  });
+  const [contactFormData, setContactFormData] = useState(contactObject);
 
   const [contactCVData, setContactCVData] = useState({
     ...contactFormData,
@@ -34,15 +31,7 @@ function App() {
 
 
   // EDUCATION STATE
-  const [educationFormData, setEducationFormData] = useState([
-    {
-      id: crypto.randomUUID(),
-      school: 'Your School',
-      degree: 'Bachelor of Science in Computer Science',
-      gradDate: new Date().toISOString().split('T')[0],
-      location: 'Buffalo, NY'
-    }
-  ]);
+  const [educationFormData, setEducationFormData] = useState([educationObject]);
 
   const [educationCVData, setEducationCVData] = useState([
     ...educationFormData
@@ -79,24 +68,7 @@ function App() {
 
 
   // WORK EXPERIENCE STATE
-  const [workExperienceFormData, setWorkExperienceFormData] = useState([
-    {
-      id: crypto.randomUUID(),
-      company: 'Google',
-      jobTitle: 'Software Engineer',
-      currentlyEmployed: true,
-      location: 'Mountain View, CA',
-      startDate: new Date("2001-01-01").toISOString().split('T')[0],
-      endDate: '',
-      duties: [
-        {id: crypto.randomUUID(), text: 'Designed the first version of Google Maps by walking around with a notepad and a really good sense of direction'},
-        {id: crypto.randomUUID(), text: 'Proposed an early version of Google Assistant in 2007—at the time, it was just an intern named Kevin who responded to emails manually'},
-        {id: crypto.randomUUID(), text: 'Attempted to replace the Google logo with a picture of my dog for April Fools; accidentally shut down the homepage for three hours'},
-        {id: crypto.randomUUID(), text: 'Personally debugged the internet after someone tripped over a cable in 2001'},
-        {id: crypto.randomUUID(), text: 'Accidentally invented Google Docs while trying to make a grocery list in Notepad'},
-      ],
-    }
-  ]);
+  const [workExperienceFormData, setWorkExperienceFormData] = useState(workExperienceObjects);
 
   const [workExperienceCVData, setWorkExperienceCVData] = useState(workExperienceFormData.map(form => {
     return {...form, duties: [...form.duties]};
@@ -154,13 +126,7 @@ function App() {
 
   // SKILLS STATE
 
-  const [skillsFormData, setSkillsFormData] = useState([
-    {
-      id: crypto.randomUUID(),
-      category: 'Programming Languages',
-      skillList: []
-    },
-  ]);
+  const [skillsFormData, setSkillsFormData] = useState(skillsObjects);
 
   const [skillsCVData, setSkillsCVData] = useState([
     ...skillsFormData,

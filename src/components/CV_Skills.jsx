@@ -26,8 +26,9 @@ export default function CV_Skills({formData}){
 
             {formData.map(form => {
                 return (
-                    <div key={form.id}>
-                        {form.category + ': ' + skillsToString(form.skillList)}
+                    <div className='cv-template-skills' key={form.id}>
+                        <span style={{fontWeight: 'bold'}}>{form.category}</span>
+                        {': ' + skillsToString(form.skillList)}
                     </div>)
             })}
 

@@ -26,7 +26,7 @@ body{
 
 .cv-container{
   width: 60%;
-  height: 100vh;
+  height: 100%;
   margin: 25px 50px;
   padding: 30px 20px;
   border: thin solid black;

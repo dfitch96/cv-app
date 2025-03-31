@@ -18,14 +18,16 @@ export default function SkillsCard({formData, handleInputOnChange, handleAddNewS
       e.preventDefault();
       setIsDisabled(true);
       // if this form has already been saved, update it at its current location, otherwise append it to the CVData array
-      if(CVData.find(form => form.id === formData.id) !== -1){
+      if(CVData.findIndex(form => form.id === formData.id) !== -1){
         const newCVData = CVData.map(form => form.id === formData.id ? formData : form);
         setCVData(newCVData);
+        console.log("current record found");
       } else{
         setCVData([
           ...CVData,
           formData
         ]);
+        console.log("current record not found");
       }
       
     }
