@@ -37,6 +37,13 @@ body{
 .header{
   display: flex;
   justify-content: center;
+  align-items: center;
   margin: 30px;
+  gap: 15px;
+}
+
+.header-icon{
+  height: 3rem;
+  width: 3rem;
 }
 
