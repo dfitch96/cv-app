@@ -1,4 +1,5 @@
 # cv-app
+
 ## Overview
 cv-app is a React-based web application that allows users to create and customize their resumes. Users can add, edit, delete, and save forms for their contact information, education, work experience, and skills. Once the information is saved, it is formatted and displayed as a structured resume.
 
@@ -15,7 +16,6 @@ cv-app is a React-based web application that allows users to create and customiz
 - CSS for styling
 - State and Props for dynamic component behavior
 
-## Installation
 ## Installation
 1. Clone the repository:
    ```bash
