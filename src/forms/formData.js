@@ -2,18 +2,18 @@
 
 
 export const contactObject = {
-  name: 'Your Name',
-  email: 'name@email.com',
+  name: 'Alan Turington',
+  email: 'Turington0101@gmail.com',
   phone: '(123) 456-7891'
 };
 
 
 export const educationObject = {
   id: crypto.randomUUID(),
-  school: 'Your School',
-  degree: 'Bachelor of Science in Computer Science',
-  gradDate: new Date().toISOString().split('T')[0],
-  location: 'Buffalo, NY'
+  school: 'Stanford University',
+  degree: 'Master of Science in Computer Science',
+  gradDate: new Date("2001-01-01").toISOString().split('T')[0],
+  location: 'Stanford, California'
 };
 
 
@@ -53,7 +53,7 @@ export const workExperienceObjects = [
   {
     id: crypto.randomUUID(),
     company: 'Google',
-    jobTitle: 'Senior Software Engineer',
+    jobTitle: 'Software Engineer',
     currentlyEmployed: false,
     location: 'Mountain View, CA',
     startDate: new Date("2001-01-01").toISOString().split('T')[0],
