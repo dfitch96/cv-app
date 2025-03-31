@@ -1,7 +1,7 @@
 # cv-app
 
 ## Overview
-This project is a React-based web application that allows users to create and customize their resumes. Users can add, edit, delete, and save forms for their contact information, education, work experience, and skills. Once the information is saved, it is formatted and displayed as a structured resume.
+This project is a React-based web application that allows users to create and customize their resume. The app uses a single resume format inspired by Jakes Resume Template. Users can add, edit, delete, and save forms for their contact information, education, work experience, and skills. Once the information is saved, it is formatted and displayed as a structured resume.
 
 ## Features
 - __General Information:__ Add and edit name, email, and phone number.
@@ -30,6 +30,9 @@ This project is a React-based web application that allows users to create and cu
    ```bash
    npm run dev
 
+## Feature Enhancements
+- Enhance the date formats that are displayed on the resume template
+- Add a print to pdf button
 
 ## Live Demo
 [odin-project-cv-app.netlify.app/](https://odin-project-cv-app.netlify.app/)
