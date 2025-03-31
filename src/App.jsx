@@ -152,6 +152,7 @@ function App() {
     const id = e.target.dataset.id;
     const newSkillsFormData = skillsFormData.filter(form => form.id !== id ? form : null);
     setSkillsFormData([...newSkillsFormData]);
+    setSkillsCVData([...newSkillsFormData]);
   }
 
   function handleAddNewSkillOnClick(e){
